@@ -1,0 +1,20 @@
+{
+  "keywords": {
+    "urgent": 2,
+    "verify": 3,
+    "login": 4,
+    "password": 4,
+    "free money": 5
+  },
+  "domains": {
+    ".ru": 5,
+    ".zip": 4,
+    ".xyz": 4
+  },
+  "heuristics": {
+    "excessive_exclamation": 3,
+    "aggressive_caps": 2,
+    "url_encoding": 4,
+    "double_extension": 6
+  }
+}

@@ -1,3 +1,5 @@
+import time
+
 phishing_words = [
     "urgent", "action required", "immediately", "expired", "final notice",
     "suspended", "unauthorized", "compromised", "deactivated", "blocked",
@@ -12,50 +14,52 @@ phishing_words = [
     "billing department", "human resources", "payroll", "shipping label",
     "delivery failure", "docusign", "e-signature", "secure message",
     "account verification", "click here", "secure link", "password change",
-    "important notice", "member update", "subscription", "billing error", 'urgent', 'verify', 'password'
+    "important notice", "member update", "subscription", "billing error"
 ]
 
+# --- Exercise 1 System ---
 text = input("Type a Message:\n")
 
-for words in phishing_words:
+# Start with the assumption that the email is clean
+Secure = True
 
-    if words in text:
+# Scan EVERY word in the database
+for word in phishing_words:
+    if word in text.lower():  # .lower() catches "URGENT", "Login", etc.
         Secure = False
-    elif words not in text:
-        Secure = True
+        break  # We found a threat! Now we stop checking and block it.
 
-    if Secure == True:
-        print("Its sent\n\n")
-        break
-    elif Secure == False:
-        print("It cant be sent\nIt seems suspicious")
-        break
+# Make the final verdict ONLY after the scan finishes looking
+if Secure:
+    print("Its sent\n\n")
+else:
+    print("It cant be sent\nIt seems suspicious\n\n")
 
-# Mini Exercises
 
-#1 done above
-
-# 2
-'''
+# --- Exercise 2 System ---
 text1 = "CLICK HERE NOW"
 
 def scan():
-    filetered_text = text1.lower()
-    if words in filetered_text:
-        print("SUS")
+    # Normalize the test string to lowercase
+    filtered_text = text1.lower()
+    
+    # Define a clean, specific target to hunt for
+    target_phrase = "click here"
+    
+    if target_phrase in filtered_text:
+        print("Exercise 2 Result: SUS")
     else:
-        print("done")
+        print("Exercise 2 Result: done")
 
 scan()
-'''
+print("\n")
 
-#  3
 
-'''
-words = ['urgent', 'winner', 'login', 'crypto', 'gift card']
+# --- Exercise 3 System ---
+words_list = ['urgent', 'winner', 'login', 'crypto', 'gift card']
 text2 = "urgent! you are the winner, login here for your crypto gift card"
 
-count = sum(text2.count(word) for word in words)
+# Counts how many distinct threat signatures triggered inside the payload string
+count = sum(1 for word in words_list if word in text2.lower())
 
-print(f"Words level: {count}")
-'''
+print(f"Exercise 3 Threat Density Metric: {count}")
