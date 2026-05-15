@@ -1,0 +1,5 @@
+INFO: System started successfully
+WARNING: Failed login attempt from 192.168.1.1
+DANGER: login urgent password .ru
+INFO: User updated profile
+DANGER: free money click here .ru
