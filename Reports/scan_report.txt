@@ -1,0 +1,5 @@
+Line 1: SAFE | INFO: System started successfully
+Line 2: DANGER | WARNING: Failed login attempt from 192.168.1.1
+Line 3: DANGER | DANGER: login urgent password .ru
+Line 4: SAFE | INFO: User updated profile
+Line 5: DANGER | DANGER: free money click here .ru
